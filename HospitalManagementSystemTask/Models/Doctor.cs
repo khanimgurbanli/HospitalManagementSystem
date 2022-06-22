@@ -11,11 +11,15 @@ namespace HospitalManagementSystemTask.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string FullName { get; set; }
         public string Surname { get; set; }
         public byte Age { get; set; }
         public byte Experience { get; set; }
 
         //Enum
         public Position Position { get; set; }
+
+        //Relationship
+        public List<Appointment> Appointments { get; set; }
     }
 }

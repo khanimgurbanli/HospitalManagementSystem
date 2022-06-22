@@ -19,10 +19,7 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"><i ></i>Əsas səhifə</a>
-                        </li>
-
+                       
                         @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                         {
                             <li>
@@ -33,11 +30,6 @@
                         }
 
                     </ul>
-
-                    <form class="form-inline my-2 my-lg-0" asp-controller="Home" asp-action="Filter" style="padding-right: 25px;">
-                        <input name="searchString" type="text" class="form-control" placeholder="Həkimin ad və soyadı ilə..." aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
-                    </form>
                     <partial name="_Identity.cshtml">
                 </div>
             </div>

@@ -1,6 +1,8 @@
-﻿@model List<Doctor>
+﻿
+@using HospitalManagementSystemTask.Data.Enums
+@model List<Doctor>
 
-
+<h2>Yeni həkim əlavə et</h2>
 <div class="row">
     <div class="col-md-8 offset-2">
 
@@ -29,10 +31,7 @@
                             <th>Yaş</th>
                             <th>Vəzifə</th>
                             <th>Təcrübə</th>
-                            @if (!User.IsInRole("Admin"))
-                            {
-                                <th>Nəzər yetir</th>
-                            }
+                            <th>Nəzər yetir</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -46,7 +45,7 @@
                                 <td>@Model.Position</td>
                                 <td>@Model.Experience il</td>
 
-                                @if (!User.IsInRole("Admin"))
+                                @if (User.IsInRole("Admin"))
                                 {
                                     <td>
                                         <a class="alert-primary" href="/Appointment/Create/@Model.Id">Növbə götür</a>

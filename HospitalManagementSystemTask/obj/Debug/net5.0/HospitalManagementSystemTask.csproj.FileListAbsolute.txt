@@ -23,8 +23,6 @@ C:\Users\DELL\source\repos\HospitalManagementSystemTask\HospitalManagementSystem
 C:\Users\DELL\source\repos\HospitalManagementSystemTask\HospitalManagementSystemTask\obj\Debug\net5.0\HospitalManagementSystemTask.TagHelpers.input.cache
 C:\Users\DELL\source\repos\HospitalManagementSystemTask\HospitalManagementSystemTask\obj\Debug\net5.0\HospitalManagementSystemTask.TagHelpers.output.cache
 C:\Users\DELL\source\repos\HospitalManagementSystemTask\HospitalManagementSystemTask\obj\Debug\net5.0\HospitalManagementSystemTask.RazorCoreGenerate.cache
-C:\Users\DELL\source\repos\HospitalManagementSystemTask\HospitalManagementSystemTask\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\DELL\source\repos\HospitalManagementSystemTask\HospitalManagementSystemTask\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\DELL\source\repos\HospitalManagementSystemTask\HospitalManagementSystemTask\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\DELL\source\repos\HospitalManagementSystemTask\HospitalManagementSystemTask\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\DELL\source\repos\HospitalManagementSystemTask\HospitalManagementSystemTask\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
@@ -88,4 +86,8 @@ C:\Users\DELL\source\repos\HospitalManagementSystemTask\HospitalManagementSystem
 C:\Users\DELL\source\repos\HospitalManagementSystemTask\HospitalManagementSystemTask\obj\Debug\net5.0\Razor\Views\Account\Users.cshtml.g.cs
 C:\Users\DELL\source\repos\HospitalManagementSystemTask\HospitalManagementSystemTask\obj\Debug\net5.0\Razor\Views\Shared\_identity.cshtml.g.cs
 C:\Users\DELL\source\repos\HospitalManagementSystemTask\HospitalManagementSystemTask\obj\Debug\net5.0\Razor\Views\Appointment\Index.cshtml.g.cs
-C:\Users\DELL\source\repos\HospitalManagementSystemTask\HospitalManagementSystemTask\obj\Debug\net5.0\Razor\Views\Appointment\Registration.cshtml.g.cs
+C:\Users\DELL\source\repos\HospitalManagementSystemTask\HospitalManagementSystemTask\obj\Debug\net5.0\Razor\Views\Appointment\Create.cshtml.g.cs
+C:\Users\DELL\source\repos\HospitalManagementSystemTask\HospitalManagementSystemTask\obj\Debug\net5.0\Razor\Views\Appointment\Edit.cshtml.g.cs
+C:\Users\DELL\source\repos\HospitalManagementSystemTask\HospitalManagementSystemTask\obj\Debug\net5.0\Razor\Views\Doctors\Index.cshtml.g.cs
+C:\Users\DELL\source\repos\HospitalManagementSystemTask\HospitalManagementSystemTask\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\DELL\source\repos\HospitalManagementSystemTask\HospitalManagementSystemTask\obj\Debug\net5.0\Razor\Views\Appointment\Myappointments.cshtml.g.cs

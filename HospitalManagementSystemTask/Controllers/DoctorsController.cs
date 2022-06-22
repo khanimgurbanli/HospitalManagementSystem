@@ -15,6 +15,12 @@ namespace HospitalManagementSystemTask.Controllers
         public DoctorsController(IDoctorService service) => _service = service;
 
 
+        public async Task<IActionResult> Index()
+        {
+           return View( await _service.GetAllAsync());
+        }
+          
+
         public IActionResult Create() =>  View();
       
 
@@ -25,10 +31,11 @@ namespace HospitalManagementSystemTask.Controllers
             if(!ModelState.IsValid)
                 return View(addDoctor);
 
+            addDoctor.FullName = addDoctor.Name + addDoctor.Surname;
 
           await  _service.AddAsync(addDoctor);
 
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Index","Appointment");
         }
 
 
@@ -48,17 +55,18 @@ namespace HospitalManagementSystemTask.Controllers
             if (!ModelState.IsValid)
                    return View(doctor);
 
+            doctor.FullName = doctor.Name + doctor.Surname;
 
             await _service.UpdateAsync(id, doctor);
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Appointment");
         }
 
         public async Task<IActionResult> Delete(int id)
         {
             await _service.DeleteAsync(id);
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Appointment");
         }
 
 

@@ -1,39 +1,35 @@
 ﻿@model IEnumerable<ApplicationUser>
 
 @{
-    ViewData["Title"] = "List of all users";
+    ViewData["Title"] = "İstifadəçilər";
 }
 
 <div class="row">
-    <div class="col-md-6 offset-3">
-        <p>
-            <h4>List of all users</h4>
-        </p>
+    <div class="col-md-8 offset-2">
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Tam ad</th>
+                            <th>İstifadəçi adı</th>
+                            <th>Elektron poçt</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var Model in Model)
+                        {
+                            <tr>
 
-        <table class="table">
-            <thead>
-                <tr class="text-center">
-                    <th>@Html.DisplayNameFor(model => model.FullName)</th>
-                    <th>@Html.DisplayNameFor(model => model.UserName)</th>
-                    <th>@Html.DisplayNameFor(model => model.Email)</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td class="align-middle">
-                            @Html.DisplayFor(modelItem => item.FullName)
-                        </td>
-                        <td class="align-middle">
-                            @Html.DisplayFor(modelItem => item.UserName)
-                        </td>
-                        <td class="align-middle">
-                            @Html.DisplayFor(modelItem => item.Email)
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
+                                <td>@Model.FullName</td>
+                                <td>@Model.UserName</td>
+                                <td>@Model.Email</td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>

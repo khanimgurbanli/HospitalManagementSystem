@@ -17,6 +17,7 @@ namespace HospitalManagementSystemTask.Data.Context
         }
 
         public DbSet<Doctor> Doctors { get; set; }
+        public DbSet<Appointment> Appointments { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

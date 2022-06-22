@@ -1,0 +1,56 @@
+﻿@model List<Appointment>
+
+
+<div class="row">
+    <div class="col-md-8 offset-2">
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                @foreach (var item in Model)
+                {
+
+                <form asp-action="Edit" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group">
+                        <label class="control-label">Ad</label>
+                        <input asp-for=@item.PasientName type="text" class="form-control" readonly />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Soyadın</label>
+                        <input asp-for=@item.PasientSurname type="text" class="form-control" readonly />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Yaş</label>
+                        <input asp-for=@item.Age type="text" class="form-control" readonly />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Əlaqə nömrəsi</label>
+                        <input asp-for=@item.Tel type="text" class="form-control" readonly />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Xəstəlik</label>
+                        <input asp-for=@item.Disease type="text" class="form-control" readonly />
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="@item.DoctorId" class="control-label">Həkim</label>
+                        @Html.DropDownListFor(x => @item.DoctorId, (List<SelectListItem>)ViewData["Doctors"], "Seçin", new { @class = "form-control", @disabled = "disabled" })<br />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Tarix</label>
+                        <input asp-for=@item.DateAndTime type="date" class="form-control" readonly />
+                    </div>
+
+                    <div class="form-group">
+                        <a class="alert-primary" href="/Appointment/Edit/@item.Id">Düzəliş et</a> <a class="alert-danger" href="/Appointment/Delete/@item.Id">Sil</a>
+                    </div>
+
+                    <div class="form-group">
+                        <a class="btn btn-outline-secondary" asp-controller="Appointment" asp-action="Index">Geriyə</a>
+                    </div>
+                </form>
+                }
+            </div>
+        </div>
+    </div>
+</div>

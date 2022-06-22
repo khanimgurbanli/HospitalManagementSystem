@@ -1,0 +1,57 @@
+﻿@model Appointment
+
+<h2>Növbə üçün form üzərində dəyişiklik</h2>
+
+<div class="row">
+    <div class="col-md-8 offset-2">
+        <div class="row">
+            <div class="col-md-8 offset-2">
+
+                <form asp-action="Edit" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group">
+                        <label asp-for="PasientName" class="control-label">Ad</label>
+                        <input asp-for="PasientName" type="text" class="form-control" />
+                        <span asp-validation-for="PasientName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PasientSurname" class="control-label">Soyadın</label>
+                        <input asp-for="PasientSurname" type="text" class="form-control" />
+                        <span asp-validation-for="PasientSurname" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Age" class="control-label">Yaş</label>
+                        <input asp-for="Age" type="text" class="form-control" />
+                        <span asp-validation-for="Age" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Tel" class="control-label">Əlaqə nömrəsi</label>
+                        <input asp-for="Tel" type="text" class="form-control" />
+                        <span asp-validation-for="Tel" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Disease" class="control-label">Xəstəlik</label>
+                        <input asp-for="Disease" type="text" class="form-control" />
+                        <span asp-validation-for="Disease" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="DateAndTime" class="control-label">Tarix</label>
+                        <input asp-for="DateAndTime" type="date" class="form-control" />
+                        <span asp-validation-for="DateAndTime" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="DoctorId" class="control-label">Həkim</label>
+                        @Html.DropDownListFor(x => x.DoctorId, (List<SelectListItem>)ViewData["Doctors"], "Seçin", new { @class = "form-control" })<br />
+                        <span asp-validation-for="DoctorId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <input type="submit" class="alert-success" value="Əlavə et" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HospitalManagementSystemTask.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220622034605_Create db")]
+    [Migration("20220622192106_Create db")]
     partial class Createdb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -89,6 +89,50 @@ namespace HospitalManagementSystemTask.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("HospitalManagementSystemTask.Models.Appointment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
+                        .HasAnnotation("SqlServer:IdentitySeed", 1)
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Age")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DateAndTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Disease")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("DoctorId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PasientName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PasientSurname")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Tel")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DoctorId");
+
+                    b.ToTable("Appointments");
+                });
+
             modelBuilder.Entity("HospitalManagementSystemTask.Models.Doctor", b =>
                 {
                     b.Property<int>("Id")
@@ -103,6 +147,9 @@ namespace HospitalManagementSystemTask.Migrations
 
                     b.Property<byte>("Experience")
                         .HasColumnType("tinyint");
+
+                    b.Property<string>("FullName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -251,6 +298,17 @@ namespace HospitalManagementSystemTask.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("HospitalManagementSystemTask.Models.Appointment", b =>
+                {
+                    b.HasOne("HospitalManagementSystemTask.Models.Doctor", "Doctor")
+                        .WithMany("Appointments")
+                        .HasForeignKey("DoctorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Doctor");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -300,6 +358,11 @@ namespace HospitalManagementSystemTask.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("HospitalManagementSystemTask.Models.Doctor", b =>
+                {
+                    b.Navigation("Appointments");
                 });
 #pragma warning restore 612, 618
         }

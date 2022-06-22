@@ -40,6 +40,7 @@ namespace HospitalManagementSystemTask
 
             //Actors Services
             services.AddScoped<IDoctorService, DoctorManager>();
+            services.AddScoped<IAppointmentService, AppointmentManager>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
@@ -95,7 +96,7 @@ namespace HospitalManagementSystemTask
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Appointment}/{action=Index}/{id?}");
             });
 
             //Seed

@@ -42,17 +42,25 @@ namespace HospitalManagementSystemTask.Controllers
                 if (passwordChck)
                 {
                     var result = await _signInManager.PasswordSignInAsync(user, login.Password, false, false);
+
                     if (result.Succeeded)
                     {
-                        return RedirectToAction("Index", "Home");
+                        if (User.IsInRole("User"))
+                            return RedirectToAction("Index", "Appointment");
+
+                            return RedirectToAction("Index", "Doctors");
                     }
                 }
             }
+
             TempData["Error"] = "Yenidən yoxlayın";
             return View(login);
         }
 
+
+
         public IActionResult Register() => View(new ViewModelRegister());
+
 
 
         [HttpPost]
@@ -83,10 +91,12 @@ namespace HospitalManagementSystemTask.Controllers
         }
 
 
+
+
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Appointment");
         }
 
     }
