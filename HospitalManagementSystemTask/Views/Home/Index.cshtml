@@ -1,0 +1,54 @@
+﻿
+@model List<Doctor>
+
+<div class="row">
+    <div class="col-md-8 offset-2">
+        @if (User.IsInRole("Admin"))
+        {
+            <div class="form-group">
+                <a class="btn btn-outline-secondary" asp-controller="Doctors" asp-action="Create">Yeni həkim əlavə et</a>
+            </div>
+        }
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Həkim</th>
+                            <th>Vəzifə</th>
+                            @if (!User.IsInRole("Admin"))
+                            {
+                                <th>Qəbula yazıl</th>
+                            }
+                            else if (User.IsInRole("Admin"))
+                            {
+                                <th>Nəzər yetir</th>
+                            }
+                        </tr>
+                    </thead>
+                    @foreach (var doctor in Model)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>@doctor.Name @doctor.Surname</td>
+                                <td>@doctor.Position</td>
+                                @if (!User.IsInRole("Admin"))
+                                {
+                                    <td>
+                                        <a class="alert-primary" href="/Appointment/Registration/@doctor.Id">Növbə götür</a>
+                                    </td>
+                                }
+                                else if (User.IsInRole("Admin"))
+                                {
+                                    <td>
+                                        <a class="alert-primary" href="/Doctors/Edit/@doctor.Id">Redaktə et</a>  <a class="alert-danger" href="/Doctors/Delete/@doctor.Id">Sil</a>
+                                    </td>
+                                }
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
